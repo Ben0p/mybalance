@@ -1,0 +1,54 @@
+
+.profile {
+    position: relative;
+    opacity: 0.70;
+    background-image: url(../../assets/img/profile.jpg);
+    background-position: right top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.blurb {
+    position: absolute;
+    margin-right: 40%;
+}
+
+.blurb p {
+    text-align: justify;
+    text-indent: 50px;
+}
+
+.text {
+    color: #fff;
+    opacity: 0.9;
+    background: #9451A0;
+    padding: 5%;
+}
+
+.spacer {
+    height: 100px;
+    opacity: 0;
+    width: 100%
+}
+
+.sign p {
+    text-align: left;
+    text-indent: 0;
+}
+
+.sign h1 {
+    font-family: 'Meie Script', cursive;
+}
+
+
+@media(max-width: 600px) {
+    .blurb {
+        margin-right: 0;
+    }
+}
+
+

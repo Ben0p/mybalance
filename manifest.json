@@ -1,0 +1,9 @@
+{
+    "shoart_name": "mybalance",
+    "name": "My Balance Aromatherapy",
+    "start_url":"/",
+    "theme_color":"#9451A0",
+    "background_color": "#ffffff",
+    "display":"standalone",
+    "orientation": "portrait"
+}
