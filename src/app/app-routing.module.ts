@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NavComponent } from './nav/nav.component';
+
 const routes: Routes = [
   {
     path: '',
-    loadChildren: '../app/home/home.module#HomeModule'
+    component: HomeComponent
   },
   {
-    path: 'posts',
-    loadChildren: '../app/posts/posts.module#PostsModule'
+    path: 'about-cass',
+    component: ProfileComponent
   },
   {
-    path: 'book',
-    loadChildren: '../app/booking/booking.module#BookingModule'
+    path: 'nav',
+    component: NavComponent
   },
-  {
-    path: 'user',
-    loadChildren: '../app/user/user.module#UserModule'
-  }
 ];
 
 @NgModule({

@@ -1,0 +1,168 @@
+
+.pimg1, .pimg2, .pimg3 {
+    position: relative;
+    opacity: 0.70;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.pimg1 {
+    background-image: url(../../assets/img/pimg1.jpg);
+    height: 100vh;
+}
+
+
+.pimg2 {
+    background-image: url(../../assets/img/pimg2.jpg);
+    height: 400px;
+}
+
+.pimg3 {
+    background-image: url(../../assets/img/pimg3.jpg);
+    height: 400px;
+}
+
+.section {
+    text-align: center;
+    padding: 30px 10%;
+}
+
+.section-light {
+    background-color: #f1f1f2;
+    color: #585858;
+    text-align: justify;
+}
+
+
+.section-dark {
+    background-color: #53445c;
+    color: #ddd;
+}
+
+
+.heading{
+    top: 30vh;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background: #f1f1f2;
+  }
+
+.heading img {
+    margin-top: 10px;
+    width: 90%;
+    max-width: 621px;
+}
+
+
+
+.container {
+    margin: -6px;
+ }
+ .container > * {
+   margin: 6px;
+ }
+
+
+
+.ptext {
+    margin: 0, 10px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    font-size: 27px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    line-height: 40px;
+}
+
+
+.ptext .border {
+    background-color: #8451a0;
+    color: #fff;
+    padding: 10px;
+    overflow-x: hidden;
+}
+
+.material-icons {
+    font-size: inherit;
+    line-height: inherit;
+    vertical-align: bottom;
+  }
+
+.contact {
+    background-color: #8451a0;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 27px;
+}
+
+
+
+
+.btn-2 {
+    background-color :hover #fff;
+    cursor: pointer;
+    letter-spacing: 0;
+}
+
+
+.btn-2:hover,
+.btn-2:active {
+  letter-spacing: 5px;
+}
+
+.btn-2:after,
+.btn-2:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#fff, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.btn-2:hover:after,
+.btn-2:hover:before {
+  backface-visibility: hidden;
+  border-color: #fff;
+  transition: width 350ms ease-in-out;
+  width: 90%;
+}
+
+.btn-2:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 90%;
+}
+
+.btn-2 a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+@media(max-width: 568px) {
+    .ptext1, .ptext {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
+@media(max-width: 410px) {
+    .ptext1, .ptext{
+        font-size: 12px;
+        line-height: 20px;
+    }
+}

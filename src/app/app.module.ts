@@ -1,49 +1,42 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-// Firebase
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireStorageModule } from 'angularfire2/storage';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-
-import { environment } from '../environments/environment';
-
-// Routing
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-
-// Componenets
 import { AppComponent } from './app.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
-// Modules
-import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
-import { BookingModule } from './booking/booking.module';
-import { UserModule } from './user/user.module';
+import { MaterialModule } from './material';
+
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    HomeComponent,
+    FooterComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireAuthModule,
     AppRoutingModule,
-    CoreModule,
-    SharedModule,
-    BookingModule,
-    UserModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    LayoutModule,
+    HttpClientModule,
+    HttpModule
   ],
-  exports: [
-    RouterModule,
-],
   providers: [],
   bootstrap: [AppComponent]
 })
