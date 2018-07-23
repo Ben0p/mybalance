@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { NavComponent } from './nav/nav.component';
     HomeComponent,
     FooterComponent,
     NavComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
