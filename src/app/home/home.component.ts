@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,12 +6,17 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: [
     './home.component.scss',
     './candle.scss',
-    '../../assets/css/scrollbar.css'
-],
-  encapsulation: ViewEncapsulation.None
+]
 })
 
+
 export class HomeComponent implements OnInit {
+
+  public isFixed: boolean;
+  rect: any;
+  rectTop: number;
+
+  @ViewChild('content') content: ElementRef;
 
     loadScripts() {
     const dynamicScripts = [
@@ -30,8 +35,21 @@ export class HomeComponent implements OnInit {
   constructor() {
   }
 
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (window.pageYOffset >= this.rectTop) {
+      this.isFixed = true;
+    } else if (this.isFixed && window.pageYOffset < this.rectTop) {
+      this.isFixed = false;
+    }
+
+  }
+
   ngOnInit() {
     this.loadScripts();
+    this.rect = this.content.nativeElement.getBoundingClientRect();
+    this.rectTop = this.rect.top - 164;
+    this.isFixed = false;
   }
 
 }

@@ -1,31 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, ViewChild, ElementRef } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
+
+
+
 export class NavComponent implements OnInit {
 
-  loadScripts() {
-    const dynamicScripts = [
-      '../../assets/js/sticky_header.js',
-    ];
-    for (let i = 0; i < dynamicScripts.length; i++) {
-      const node = document.createElement('script');
-      node.src = dynamicScripts[i];
-      node.type = 'text/javascript';
-      node.async = false;
-      node.charset = 'utf-8';
-      document.getElementsByTagName('head')[0].appendChild(node);
+  public isFixed: boolean;
+  rect: any;
+  rectTop: number;
+  router: any;
+
+  @ViewChild('navbar') navbar: ElementRef;
+
+
+  constructor(private _router: Router) {
+    this.router = _router;
+  }
+
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (this.router.url !== '/') {
+      this.isFixed = true;
+    } else {
+
+      if (window.pageYOffset >= this.rectTop) {
+        this.isFixed = true;
+      } else if (this.isFixed && window.pageYOffset < this.rectTop) {
+        this.isFixed = false;
+      }
+
     }
   }
 
-  constructor() {
-    this.loadScripts();
-   }
 
   ngOnInit() {
+    this.rect = this.navbar.nativeElement.getBoundingClientRect();
+    this.rectTop = this.rect.top;
+    if (this.router.url === '/') {
+      this.isFixed = false;
+    } else {
+      this.isFixed = true;
+    }
   }
-
 }
+
+

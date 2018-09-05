@@ -18,7 +18,7 @@
   <div class='layer-4 layer' data-depth='0.9' data-type='parallax'></div>
 </div>
 <app-nav id="app-nav"></app-nav>
-<div id='content'>
+<div #content [class.content-sticky]="isFixed" [class.content]="!isFixed">
     <section class="intro">
         <div fxLayout="wrap row" fxLayout.xs="column" fxLayoutAlign="space-around center">
           <div class="item item-1" fxFlex="60">
@@ -31,7 +31,7 @@
           </div>
         </div>
       </section>
-      <div class="contact">
+      <div class="contact-section">
         <div fxLayout="wrap row" fxLayout.xs="column" fxLayoutAlign="center center">
           <div class="item item-1" fxFlex="30">
             <div class="btn-2">
