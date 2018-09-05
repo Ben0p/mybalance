@@ -1,7 +1,7 @@
-<div class="over">
+<div class="over" [hidden]="isFixed">
   <img src='../../assets/img/over.png'>
 </div>
-<div id="navbar">
+<div id="navbar" #navbar [class.sticky]="isFixed">
   <div class="links">
     <a [routerLink]="['/']">Home</a>
     <a [routerLink]="['/news']">News</a>

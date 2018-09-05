@@ -1,23 +1,26 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material';
-import { MatCheckboxModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
-import { MatRadioModule } from '@angular/material/radio';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTabsModule } from '@angular/material/tabs';
+
+// Forms
+import { MatRadioModule } from '@angular/material/radio';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
     imports: [
@@ -39,7 +42,8 @@ import { MatTabsModule } from '@angular/material/tabs';
         MatDividerModule,
         MatSelectModule,
         MatSliderModule,
-        MatTabsModule
+        MatTabsModule,
+        MatInputModule
     ],
     exports: [
         MatButtonModule,
@@ -60,7 +64,8 @@ import { MatTabsModule } from '@angular/material/tabs';
         MatDividerModule,
         MatSelectModule,
         MatSliderModule,
-        MatTabsModule
+        MatTabsModule,
+        MatInputModule
     ]
 })
 

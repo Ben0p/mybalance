@@ -10,6 +10,7 @@
 .links {
   background-color: #53445c;
   width: 100vw;
+  min-width: 310px;
   height: 60px;
 }
 
@@ -28,6 +29,7 @@
   margin: 0px;
   padding: 0px;
   display: block;
+  min-width: 1000px;
 }
 
 .under img {
