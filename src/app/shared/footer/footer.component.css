@@ -1,0 +1,17 @@
+.footer {
+    background: #585858;
+    color: #f1f1f2;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    height: 80px;
+    line-height: 80px;
+}
+
+.footer-text {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}

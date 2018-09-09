@@ -1,66 +1,49 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LayoutModule } from '@angular/cdk/layout';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
-
-// Routing
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Firebase
 import { AngularFireModule } from 'angularfire2';
-import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-export const firebaseConfig = environment.firebase;
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { environment } from '../environments/environment';
 
-// Material
-import { MaterialModule } from './material';
+// Routing
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
-// Mapbox
-import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
-
-// Components
+// Componenets
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavComponent } from './nav/nav.component';
-import { ContactComponent } from './contact/contact.component';
-import { FormComponent } from './form/form.component';
 
+// Modules
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { BookingModule } from './booking/booking.module';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProfileComponent,
-    HomeComponent,
-    FooterComponent,
-    NavComponent,
-    ContactComponent,
-    FormComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
-    LayoutModule,
-    HttpClientModule,
-    HttpModule,
-    NgxMapboxGLModule.withConfig({
-      accessToken: 'pk.eyJ1IjoiYmVuMCIsImEiOiJjajh1ZDMzNzkweXU5MnJvNmNjOGE1c3UzIn0.lj3vfW_n49fbhc1V46qfUA'
-    }),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule.enablePersistence(),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    BookingModule,
+    UserModule
   ],
+  exports: [
+    RouterModule,
+],
   providers: [],
   bootstrap: [AppComponent]
 })
