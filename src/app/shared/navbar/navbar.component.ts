@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     public auth: AuthService,
     public breakpointObserver: BreakpointObserver,
-    private router: Router
+    public router: Router
   ) {
 
     this.router.events.subscribe((event: Event) => {
@@ -60,6 +60,9 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  navigate(url) {
+    window.open(url, '_blank');
+  }
 
   ngOnInit() {
   }

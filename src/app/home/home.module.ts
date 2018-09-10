@@ -7,6 +7,7 @@ import { LandingComponent } from './landing/landing.component';
 import { NewsComponent } from './news/news.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { AboutComponent } from './about/about.component';
     LandingComponent,
     NewsComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    IndexComponent
   ]
 })
 export class HomeModule { }
