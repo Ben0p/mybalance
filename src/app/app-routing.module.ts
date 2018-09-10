@@ -9,14 +9,6 @@ const routes: Routes = [
   {
     path: 'posts',
     loadChildren: '../app/posts/posts.module#PostsModule'
-  },
-  {
-    path: 'book',
-    loadChildren: '../app/booking/booking.module#BookingModule'
-  },
-  {
-    path: 'user',
-    loadChildren: '../app/user/user.module#UserModule'
   }
 ];
 

@@ -16,12 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Componenets
 import { AppComponent } from './app.component';
-
-// Modules
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { BookingModule } from './booking/booking.module';
-import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -37,9 +33,7 @@ import { UserModule } from './user/user.module';
     AngularFireAuthModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule,
-    BookingModule,
-    UserModule
+    SharedModule
   ],
   exports: [
     RouterModule,

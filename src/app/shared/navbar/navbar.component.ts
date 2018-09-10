@@ -60,9 +60,6 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  navigate(url) {
-    window.open(url, '_blank');
-  }
 
   ngOnInit() {
   }

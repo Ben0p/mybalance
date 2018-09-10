@@ -5,12 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './landing.component.html',
   styleUrls: [
     './landing.component.scss',
+    './parallax.scss'
   ]
 })
 export class LandingComponent implements OnInit {
 
-  constructor( ) { }
+  constructor(  ) { }
 
-  ngOnInit() { }
+  ngOnInit() {  }
 
 }
