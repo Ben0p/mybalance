@@ -1,0 +1,37 @@
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 200px;
+    background-color: #f1f1f2
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+  } 
+
+.spacer {
+    flex: 1 1 auto;
+  }
+
+span:focus {
+    outline: none;
+    border: 0;
+}
+
+span {
+    cursor: pointer;
+    margin: auto 5px;
+}
+
+.middle {
+	min-height: calc(100vh - 144px);
+}
+
+@media(max-width: 599px) {
+  .middle {
+    min-height: calc(100vh - 136px);
+  }
+}

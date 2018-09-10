@@ -1,0 +1,52 @@
+<div class="container">
+  <nav>
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'">
+        <mat-toolbar color="primary">Menu</mat-toolbar>
+        <mat-nav-list>
+          <a mat-list-item (click)="drawer.toggle()" routerLink="/">Home</a>
+          <a mat-list-item (click)="drawer.toggle()" routerLink="/posts">News</a>
+          <a mat-list-item (click)="drawer.toggle()" routerLink="/contact">Contact</a>
+          <a mat-list-item (click)="drawer.toggle()" routerLink="/about">About</a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-toolbar color="primary" *ngIf="router.url !== '/'">
+          <mat-toolbar-row>
+
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+
+            <div class="items" [hidden]="isHandset$ | async">
+              <span routerLink="/">Home</span>
+              <span routerLink="/posts">News</span>
+              <span routerLink="/contact">Contact</span>
+              <span routerLink="/about">About</span>
+            </div>
+
+            <span class="spacer"></span>
+
+            <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
+              <button mat-raised-button color="accent" routerLink="/posts/dashboard">Write a Post</button>
+              <button mat-button (click)="auth.logout()">Logout</button>
+            </div>
+
+            <ng-template #showLogin>
+              <button mat-button (click)="auth.login()">Login</button>
+            </ng-template>
+
+          </mat-toolbar-row>
+        </mat-toolbar>
+
+        <mat-progress-bar *ngIf="loading" color="accent" mode="indeterminate"></mat-progress-bar>
+        <div class="middle">
+          <ng-content></ng-content>
+        </div>
+        <app-footer *ngIf="router.url !== '/'"></app-footer>
+
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </nav>
+</div>
