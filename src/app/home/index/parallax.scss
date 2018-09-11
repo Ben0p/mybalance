@@ -1,8 +1,7 @@
 .parallax {
     height: 500px; /* fallback for older browsers */
-    height: 100vh;
+    min-height: calc(100vh - 64px);
     overflow-x: hidden;
-    overflow-y: auto;
     -webkit-perspective: 300px;
     perspective: 300px;
   }
@@ -10,7 +9,7 @@
   .parallax__group {
     position: relative;
     height: 500px; /* fallback for older browsers */
-    height: 100vh;
+    height: calc(100vh - 64px);
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
@@ -116,7 +115,7 @@
 
   #group1 .parallax__layer--base {
     background-image: url('../../../assets/img/ilu_bg.jpeg');
-    background-position: center;
+    background-position: bottom right;
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -124,6 +123,7 @@
   #group2 {
     z-index: 3; /* slide under groups 1 and 3 */
   }
+
   #group2 .parallax__layer--back {
     background-image: url('../../../assets/img/pimg1.jpg');
     background-position: center;
@@ -192,4 +192,14 @@
     font-size:80%;
     text-align:center;
     width: 100%;
+  }
+
+  @media(max-width: 599px) {
+    .parallax {
+      min-height: calc(100vh - 56px);
+    }
+
+    .parallax__group {
+      height: calc(100vh - 56px);
+    }
   }

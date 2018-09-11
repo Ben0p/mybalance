@@ -1,41 +1,74 @@
 <div class="container">
   <nav>
     <mat-sidenav-container class="sidenav-container">
-      <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'">
+
+      <!--Main Drawer Menu-->
+      <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="side" position="end">
         <mat-toolbar color="primary">Menu</mat-toolbar>
         <mat-nav-list>
-          <a mat-list-item (click)="drawer.toggle()" routerLink="/">Home</a>
+          <a mat-list-item (click)="drawer.toggle()" routerLink="/home">Home</a>
+          <a mat-list-item (click)="drawer.toggle()" routerLink="/book">Book</a>
           <a mat-list-item (click)="drawer.toggle()" routerLink="/posts">News</a>
           <a mat-list-item (click)="drawer.toggle()" routerLink="/contact">Contact</a>
           <a mat-list-item (click)="drawer.toggle()" routerLink="/about">About</a>
+          <!-- Drawer items if logged in-->
+          <div *ngIf="auth.afAuth.authState | async as user; else showDrawerLogin">
+            <a mat-list-item (click)="drawer.toggle()" routerLink="/user/dashboard">Dashboard</a>
+            <a mat-list-item (click)="drawer.toggle() && auth.logout()" routerLink="/user/login">Logout</a>
+          </div>
+          <!-- Drawer items if logged out-->
+          <ng-template #showDrawerLogin>
+            <a mat-list-item (click)="drawer.toggle()" routerLink="/user/login">Login</a>
+          </ng-template>
         </mat-nav-list>
       </mat-sidenav>
+
       <mat-sidenav-content>
+        <!--Toolbar (All pages except landing '/')-->
         <mat-toolbar color="primary" *ngIf="router.url !== '/'">
           <mat-toolbar-row>
+            <!--Left loobar icon link home-->
+            <img class="icon" routerLink="/home" src="../../../assets/img/icon.png">
 
+            <!--Spacer to make items go to right-->
+            <span class="spacer"></span>
+
+            <!--Menu drawer icon if device is handset-->
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
               <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
 
+            <!--Links if desktop-->
             <div class="items" [hidden]="isHandset$ | async">
-              <span routerLink="/">Home</span>
+              <span routerLink="/book">Book</span>
               <span routerLink="/posts">News</span>
               <span routerLink="/contact">Contact</span>
               <span routerLink="/about">About</span>
+
+              <!--Logged In Menu Button-->
+              <span *ngIf="auth.afAuth.authState | async as user; else showLoginBar" [matMenuTriggerFor]="menu">
+                <img class="userImage" src="{{user.photoURL}}" alt="User">
+              </span>
+
+              <!--Logged In Menu-->
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="auth.logout()" routerLink="/user/login">
+                  Logout
+                </button>
+                <button mat-menu-item routerLink="/posts/dashboard">
+                  Write a Post
+                </button>
+              </mat-menu>
+
+              <!--Log In Link-->
+              <ng-template #showLoginBar>
+                <span class="fa fa-facebook" (click)="navigate('https://www.facebook.com/mybalancewa/')"></span>
+                <span class="fa fa-instagram" (click)="navigate('https://www.instagram.com/mybalancearoma/')"></span>
+                <span class="fa fa-user" routerLink="/user/login" alt="Log In"></span>
+              </ng-template>
+
             </div>
 
-            <span class="spacer"></span>
-
-            <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
-              <button mat-raised-button color="accent" routerLink="/posts/dashboard">Write a Post</button>
-              <button mat-button (click)="auth.logout()">Logout</button>
-            </div>
-
-            <ng-template #showLogin>
-              <button mat-button (click)="auth.login()">Login</button>
-            </ng-template>
 
           </mat-toolbar-row>
         </mat-toolbar>
@@ -44,7 +77,7 @@
         <div class="middle">
           <ng-content></ng-content>
         </div>
-        <app-footer *ngIf="router.url !== '/'"></app-footer>
+        <app-footer *ngIf="router.url !== '/' && router.url !== '/home'"></app-footer>
 
       </mat-sidenav-content>
     </mat-sidenav-container>
